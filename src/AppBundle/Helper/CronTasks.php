@@ -2,19 +2,19 @@
 namespace AppBundle\Helper;
 
 use AppBundle\Helper\Helper;
-use AppBundle\Security\RoleManager;
+use AppBundle\Security\AuthorizationManager;
 
 /**
  * Handles Cache functions
  */
 class CronTasks extends Helper
 {
-    private $roleManager;
+    private $authManager;
 
-    public function __construct($doctrine, RoleManager $roleManager)
+    public function __construct($doctrine, AuthorizationManager $authManager)
     {
         $this->doctrine = $doctrine;
-        $this->roleManager = $roleManager;
+        $this->authManager = $authManager;
     }
 
 
@@ -34,7 +34,7 @@ class CronTasks extends Helper
 
         if (!empty($apiKey) && !empty($apiCode))
         {
-           $this->roleManager->updateContacts($apiKey, $apiCode);
+           $this->authManager->updateContacts($apiKey, $apiCode);
         }
     }
 }

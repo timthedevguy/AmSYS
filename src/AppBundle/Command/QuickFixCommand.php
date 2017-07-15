@@ -54,13 +54,27 @@ class QuickFixCommand extends ContainerAwareCommand
         //add new values
         $helper->setSetting('default_buyaction_deny', '0', 'P');
 
-        $helper->setSetting('role_member_tax',  $helper->getSetting('default_tax', 'P'), 'P');
+        $previousSetting =$helper->getSetting('default_tax', 'P');
+        if ($previousSetting == null) {$previousSetting = '5';}
+        $helper->setSetting('role_member_tax',$previousSetting , 'P');
         $helper->setSetting('role_ally_tax', '6', 'P');
         $helper->setSetting('role_friend_tax', '8', 'P');
         $helper->setSetting('role_other1_tax', '10', 'P');
         $helper->setSetting('role_other2_tax', '0', 'P');
         $helper->setSetting('role_other3_tax', '0', 'P');
 
-
+        foreach(['S', 'SRP'] as $settingType)
+        {
+            $helper->setSetting('default_buyaction_deny', '0', $settingType);
+            $helper->setSetting("source_id", "30000142", $settingType);
+            $helper->setSetting("source_type", "buy", $settingType);
+            $helper->setSetting("source_stat", "fivePercent", $settingType);
+            $helper->setSetting('role_member_tax', '5', $settingType);
+            $helper->setSetting('role_ally_tax', '6', $settingType);
+            $helper->setSetting('role_friend_tax', '8', $settingType);
+            $helper->setSetting('role_other1_tax', '10', $settingType);
+            $helper->setSetting('role_other2_tax', '0', $settingType);
+            $helper->setSetting('role_other3_tax', '0', $settingType);
+        }
     }
 }
