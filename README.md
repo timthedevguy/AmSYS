@@ -1,4 +1,5 @@
-* Note the 'master' branch is no more, I fubarred it soooo bad.  New primary branch is 'release'.
+# Annoucement
+Meet AmSYS's little brother BuySYS, I took the original part of AmSYS (the Buyback system) and converted it to a standalone web application with one goal in mind, to be a Corp/Alliance Buyback System!  It trys to do one thing and do it well.  Check it out  here https://github.com/binarygod/BuySYS.  BuySYS is under active development.
 
 AmSYS
 =====
